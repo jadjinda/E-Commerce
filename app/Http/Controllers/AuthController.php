@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -15,7 +16,17 @@ class AuthController extends Controller
 
     public function loginPost(Request $request)
     {
+        $request->validate([
+            "email"=>"required",
+            "password"=>"required"
+        ]);
 
+        $credentials = $request->only("email", "password");
+        if(Auth::attempt($credentials)){
+            return redirect()->intended(route("welcome"));
+        }
+        return redirect(route("login"))
+            ->with("error","Login failed");
     }
 
     public function register()
