@@ -31,18 +31,40 @@
                 <strong>Bienvenue!</strong>
                 <span>Veuillez-vous connecter à votre compte</span>
 
-                <form action="{{ url('AuthController') }}" method="post" class="login-form">
+                @if(session()->has("success"))
+                    <div class="alert alert-success">
+                        {{session()->get("success")}}
+                    </div>
+                @endif
+                @if(session()->has("error"))
+                    <div class="alert alert-danger">
+                        {{session()->get("error")}}
+                    </div>
+                @endif
+
+                <form method="post" action="{{route("login.post")}}" class="login-form">
+                    @csrf
                     <fieldset>
                         <div class="form">
                             <div class="form-row">
                                 <span class="fas fa-user"></span>
                                 <label class="form-label" for="input">Nom d'utilisateur</label>
-                                <input type="text" class="form-text">
+                                <input type="text" class="form-text" name="email">
+                                @if($errors->has('email'))
+                                    <span class="text-danger">
+                                        {{ $errors->first('email') }}
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-row">
                                 <span class="fas fa-eye"></span>
                                 <label class="form-label" for="input">Mot de passe</label>
-                                <input type="password" class="form-text">
+                                <input type="password" class="form-text" name="password">
+                                @if($errors->has('password'))
+                                    <span class="text-danger">
+                                        {{ $errors->first('password') }}
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-row bottom">
                                 <div class="form-check">

@@ -723,24 +723,24 @@
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="../images/i-3.jpg" alt="">
+                                        <img src="../../images/i-3.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="../images/i-4.jpg" alt="">
+                                        <img src="../../images/i-4.jpg" alt="">
                                     </div>
                                 </a>
                             </div>
                             <div>
                                 <a href="">
                                     <div class="insta-box b-3">
-                                        <img src="../images/i-5.jpg" alt="">
+                                        <img src="../../images/i-5.jpg" alt="">
                                     </div>
                                 </a>
                                 <a href="">
                                     <div class="insta-box b-4">
-                                        <img src="../images/i-6.jpg" alt="">
+                                        <img src="../../images/i-6.jpg" alt="">
                                     </div>
                                 </a>
                             </div>

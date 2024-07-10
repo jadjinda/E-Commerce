@@ -2,35 +2,42 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.welcome');
 });
 
-Route::get('/login', [\App\Http\Controllers\AuthController::class, "login"]);
+Route::get('/login', [\App\Http\Controllers\AuthController::class, "login"])
+    ->name("login");
 
-Route::get('/register', function (){
-    return view('register');
-});
+Route::post('/login', [\App\Http\Controllers\AuthController::class, "loginPost"])
+    ->name("login.post");
+
+Route::get('/register', [\App\Http\Controllers\AuthController::class, "register"])
+    ->name("register");
+
+Route::post('/register', [\App\Http\Controllers\AuthController::class, "registerPost"])
+    ->name("register.post");
+
 
 Route::get('/forgot', function (){
-    return view('forgotPass');
+    return view('auth.forgotPass');
 });
 
 Route::get('/data', function (){
-    return view('data');
+    return view('pages.data');
 });
 
 Route::get('/about', function (){
-    return view('about');
+    return view('pages.about');
 });
 
 Route::get('/shop', function (){
-    return view('shop');
+    return view('pages.shop');
 });
 
 Route::get('/furniture', function (){
-    return view('furniture');
+    return view('pages.furniture');
 });
 
 Route::get('/contact', function (){
-    return view('contact');
+    return view('pages.contact');
 });
